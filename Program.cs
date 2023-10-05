@@ -1,15 +1,25 @@
 ﻿using cadeteria;
 
 List<Cadete> listaCadetes = new List<Cadete>();
-Cadete cadete1 = new Cadete(1, "Agustin", "Dir1", "3811111111");
+/* Cadete cadete1 = new Cadete(1, "Agustin", "Dir1", "3811111111");
 Cadete cadete2 = new Cadete(2, "Juan", "Dir2", "3812222222");
 Cadete cadete3 = new Cadete(3, "Jose", "Dir3", "3813333333");
 
 listaCadetes.Add(cadete1);
 listaCadetes.Add(cadete2);
-listaCadetes.Add(cadete3);
+listaCadetes.Add(cadete3); */
 
-Cadeteria cadeteria = new Cadeteria("Cadeteria", "3815349154", listaCadetes);
+// Cadeteria cadeteria = new Cadeteria("Cadeteria", "3815349154");
+
+AccesoADatos HelperDatos = new AccesoADatos();
+string pathCadetes = "cadetes.csv", pathCadeteria = "cadeteria.csv";
+Cadeteria? cadeteria = null;
+
+if (HelperDatos.ExisteArchivo(pathCadetes) && HelperDatos.ExisteArchivo(pathCadeteria))
+{
+    cadeteria = HelperDatos.cargarCadeteria(pathCadeteria);
+    HelperDatos.cargarCadetes(pathCadetes, cadeteria);
+}
 
 void nuevoPedido()
 {
