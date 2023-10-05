@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nombre": "Agustin",
+        "direccion": "25 de Mayo 300",
+        "telefono": 381111111
+    },
+    {
+        "id": 2,
+        "nombre": "Juan",
+        "direccion": "25 de Mayo 300",
+        "telefono": 381111111
+    },
+    {
+        "id": 3,
+        "nombre": "Pedro",
+        "direccion": "25 de Mayo 300",
+        "telefono": 381111111
+    }
+]

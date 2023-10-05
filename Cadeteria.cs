@@ -16,13 +16,19 @@ public class Cadeteria
     {
         Nombre = nom;
         Telefono = tel;
+        listadoCadetes = new List<Cadete>();
         listadoPedidos = new List<Pedido>();
     }
 
-    public void crearPedido(int cadId, string obs, string cliNom, string cliDir, string cliTel, string cliRef)
+    public void CargarCadetes(List<Cadete> cadetes)
+    {
+        listadoCadetes = cadetes;
+    }
+
+    public void crearPedido(int cadId, int nroP, string obs, string cliNom, string cliDir, string cliTel, string cliRef)
     {
         Cliente clientePedido = new Cliente(cliNom, cliDir, cliTel, cliRef);
-        Pedido nuevoPedido = new Pedido(listadoPedidos.Count + 1, obs, clientePedido);
+        Pedido nuevoPedido = new Pedido(cadId, nroP, obs, clientePedido);
         listadoPedidos.Add(nuevoPedido);
     }
 

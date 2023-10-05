@@ -1,24 +1,45 @@
 ﻿using cadeteria;
 
 List<Cadete> listaCadetes = new List<Cadete>();
-Cadete cadete1 = new Cadete(1, "Agustin", "Dir1", "3811111111");
-Cadete cadete2 = new Cadete(2, "Juan", "Dir2", "3812222222");
-Cadete cadete3 = new Cadete(3, "Jose", "Dir3", "3813333333");
 
-listaCadetes.Add(cadete1);
-listaCadetes.Add(cadete2);
-listaCadetes.Add(cadete3);
+AccesoADatos HelperDatos = null;
+int op;
+do
+{
+    Console.WriteLine("Desea leer los datos con formato:\n1. csv\n2. json");
+    int.TryParse(Console.ReadLine(), out op);
+} while (op != 1 && op != 2);
 
-Cadeteria cadeteria = new Cadeteria("Cadeteria", "3815349154", listaCadetes);
+string pathCadetes = "", pathCadeteria = "";
+
+if (op == 1)
+{
+    HelperDatos = new ArchivoCSV();
+    pathCadetes = "cadetes.csv";
+    pathCadeteria = "cadeteria.csv";
+}
+if (op == 2)
+{
+    HelperDatos = new ArchivoJSON();
+    pathCadetes = "cadetes.json";
+    pathCadeteria = "cadeteria.json";
+};
+
+Cadeteria? cadeteria = null;
+
+if (HelperDatos.ExisteArchivo(pathCadetes) && HelperDatos.ExisteArchivo(pathCadeteria))
+{
+    cadeteria = HelperDatos.cargarCadeteria(pathCadeteria);
+    cadeteria.CargarCadetes(HelperDatos.cargarCadetes(pathCadetes));
+}
+
 
 void nuevoPedido()
 {
-    int nroP, idC;
+    int idC;
     string? obsP, nomC, dirC, telC, refC;
 
     Console.WriteLine("\n===== NUEVO PEDIDO =====");
-    Console.WriteLine("Numero de pedido: ");
-    int.TryParse(Console.ReadLine(), out nroP);
     Console.WriteLine("Observaciones del pedido: ");
     obsP = Console.ReadLine();
     Console.WriteLine("Nombre del cliente: ");
@@ -32,7 +53,7 @@ void nuevoPedido()
     Console.WriteLine("Id del cadete: ");
     int.TryParse(Console.ReadLine(), out idC);
 
-    cadeteria.crearPedido(idC, nroP, obsP, nomC, dirC, telC, refC);
+    cadeteria.crearPedido(idC, cadeteria.ListadoPedidos.Count + 1, obsP, nomC, dirC, telC, refC);
 }
 
 void cambiarEstadoPedido()
@@ -42,15 +63,11 @@ void cambiarEstadoPedido()
     Console.WriteLine("\n===== CAMBIAR ESTADO PEDIDO =====");
     Console.WriteLine("Numero de pedido: ");
     int.TryParse(Console.ReadLine(), out nroP);
-    foreach (Cadete cad in cadeteria.ListadoCadetes)
+    foreach (Pedido p in cadeteria.ListadoPedidos)
     {
-        foreach (Pedido p in cad.ListadoPedidos)
+        if (p.Nro == nroP)
         {
-            if (p.Nro == nroP)
-            {
-                pedidoBuscado = p;
-                break;
-            }
+            pedidoBuscado = p;
         }
     }
     if (pedidoBuscado == null)
@@ -83,42 +100,20 @@ void cambiarEstadoPedido()
 
 void reasignarPedido()
 {
-    int nroP, cadeteAntId = 0, nuevoCadeteId;
+    int nroP, nuevoCadeteId;
     Pedido pedidoBuscado = null;
     Console.WriteLine("\n===== REASIGNAR PEDIDO =====");
     Console.WriteLine("Numero de pedido: ");
     int.TryParse(Console.ReadLine(), out nroP);
-    foreach (Cadete cad in cadeteria.ListadoCadetes)
-    {
-        foreach (Pedido p in cad.ListadoPedidos)
-        {
-            if (p.Nro == nroP)
-            {
-                pedidoBuscado = p;
-                cad.ListadoPedidos.Remove(p);
-                cadeteAntId = cad.Id;
-                break;
-            }
-        }
-    }
-    if (pedidoBuscado == null)
-    {
-        Console.WriteLine("No existe el pedido buscado");
-    }
-    else
-    {
-        Console.WriteLine("Pedido encontrado. Id del cadete: " + cadeteAntId);
-        Console.WriteLine("Ingrese el id del nuevo cadete: ");
-        int.TryParse(Console.ReadLine(), out nuevoCadeteId);
+    Console.WriteLine("Id del nuevo cadete: ");
+    int.TryParse(Console.ReadLine(), out nuevoCadeteId);
 
-        foreach (Cadete cad in cadeteria.ListadoCadetes)
+    foreach (Pedido p in cadeteria.ListadoPedidos)
+    {
+        if (p.Nro == nroP)
         {
-            if (cad.Id == nuevoCadeteId)
-            {
-                cad.ListadoPedidos.Add(pedidoBuscado);
-                Console.WriteLine("Pedido reasignado correctamente");
-                break;
-            }
+            p.IdCadete = nuevoCadeteId;
+            break;
         }
     }
 }

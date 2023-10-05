@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\tp1\\tp1.csproj",
+      "projectUniqueName": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\repos\\tl2-tp1-2023-castroagustin\\tp1.csproj",
       "projectName": "tp1",
-      "projectPath": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\tp1\\tp1.csproj",
+      "projectPath": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\repos\\tl2-tp1-2023-castroagustin\\tp1.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\tp1\\obj\\",
+      "outputPath": "D:\\Disco Nuevo\\FACET\\C IV\\TLII\\repos\\tl2-tp1-2023-castroagustin\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
