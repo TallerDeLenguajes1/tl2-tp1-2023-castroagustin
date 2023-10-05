@@ -1,0 +1,30 @@
+D:\Agustin\TLII\tp1\bin\Debug\net7.0\tp1.exe
+D:\Agustin\TLII\tp1\bin\Debug\net7.0\tp1.deps.json
+D:\Agustin\TLII\tp1\bin\Debug\net7.0\tp1.runtimeconfig.json
+D:\Agustin\TLII\tp1\bin\Debug\net7.0\tp1.dll
+D:\Agustin\TLII\tp1\bin\Debug\net7.0\tp1.pdb
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.csproj.AssemblyReference.cache
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.AssemblyInfoInputs.cache
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.AssemblyInfo.cs
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.csproj.CoreCompileInputs.cache
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.dll
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\refint\tp1.dll
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.pdb
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\tp1.genruntimeconfig.cache
+D:\Agustin\TLII\tp1\obj\Debug\net7.0\ref\tp1.dll
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\bin\Debug\net7.0\tp1.exe
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\bin\Debug\net7.0\tp1.deps.json
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\bin\Debug\net7.0\tp1.runtimeconfig.json
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\bin\Debug\net7.0\tp1.dll
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\bin\Debug\net7.0\tp1.pdb
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.csproj.AssemblyReference.cache
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.AssemblyInfoInputs.cache
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.AssemblyInfo.cs
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.csproj.CoreCompileInputs.cache
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.dll
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\refint\tp1.dll
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.pdb
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\tp1.genruntimeconfig.cache
+D:\Disco Nuevo\FACET\C IV\TLII\tp1\obj\Debug\net7.0\ref\tp1.dll
