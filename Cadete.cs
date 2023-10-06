@@ -21,12 +21,12 @@ public class Cadete
     public string? Telefono { get => telefono; set => telefono = value; }
 
 
-    public Cadete(int id, string nom, string dir, string tel)
+    public Cadete(int id, string nombre, string direccion, string telefono)
     {
         this.id = id;
-        this.nombre = nom;
-        this.direccion = dir;
-        this.telefono = tel;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
     }
 
 }

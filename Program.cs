@@ -1,38 +1,40 @@
 ﻿using cadeteria;
 
-List<Cadete> listaCadetes = new List<Cadete>();
+AccesoADatos HelperDatos;
+Cadeteria cadeteria;
+List<Cadete> listaCadetes;
+string acceder = "";
+string rutaArchivoDatosCadeteria = "", rutaArchivoDatosCadetes = "";
 
-AccesoADatos HelperDatos = null;
-int op;
 do
 {
-    Console.WriteLine("Desea leer los datos con formato:\n1. csv\n2. json");
-    int.TryParse(Console.ReadLine(), out op);
-} while (op != 1 && op != 2);
+    Console.WriteLine("TIPO DE ACCESO A LOS DATOS\n");
+    Console.WriteLine("> Opción a: Por archivo csv");
+    Console.WriteLine("> Opción b: Por archivo json\n");
+    Console.Write("Opcion: ");
+    acceder = Console.ReadLine();
+} while (acceder != "a" && acceder != "b");
 
-string pathCadetes = "", pathCadeteria = "";
-
-if (op == 1)
+if (acceder == "a")
 {
+    rutaArchivoDatosCadeteria = "cadeteria.csv";
+    rutaArchivoDatosCadetes = "cadetes.csv";
     HelperDatos = new ArchivoCSV();
-    pathCadetes = "cadetes.csv";
-    pathCadeteria = "cadeteria.csv";
 }
-if (op == 2)
+else
 {
+    rutaArchivoDatosCadeteria = "cadeteria.json";
+    rutaArchivoDatosCadetes = "cadetes.json";
     HelperDatos = new ArchivoJSON();
-    pathCadetes = "cadetes.json";
-    pathCadeteria = "cadeteria.json";
-};
-
-Cadeteria? cadeteria = null;
-
-if (HelperDatos.ExisteArchivo(pathCadetes) && HelperDatos.ExisteArchivo(pathCadeteria))
-{
-    cadeteria = HelperDatos.cargarCadeteria(pathCadeteria);
-    cadeteria.CargarCadetes(HelperDatos.cargarCadetes(pathCadetes));
 }
 
+
+if (HelperDatos.ExisteArchivo(rutaArchivoDatosCadeteria) && HelperDatos.ExisteArchivo(rutaArchivoDatosCadetes))
+{
+    cadeteria = HelperDatos.cargarCadeteria(rutaArchivoDatosCadeteria);
+    listaCadetes = HelperDatos.cargarCadetes(rutaArchivoDatosCadetes);
+    cadeteria.AgregarListaCadetes(listaCadetes);
+}
 
 void nuevoPedido()
 {
@@ -119,7 +121,7 @@ void reasignarPedido()
 }
 
 // MENU
-int aux;
+/* int aux;
 do
 {
     Console.WriteLine("\n===== MENU CADETERIA =====");
@@ -138,4 +140,4 @@ do
             reasignarPedido();
             break;
     }
-} while (aux >= 1 && aux <= 3);
+} while (aux >= 1 && aux <= 3); */

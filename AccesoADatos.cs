@@ -1,17 +1,21 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace cadeteria;
+
 public abstract class AccesoADatos
 {
+    public abstract Cadeteria cargarCadeteria(string path);
+    public abstract List<Cadete> cargarCadetes(string path);
+
     public bool ExisteArchivo(string path)
     {
         return File.Exists(path);
     }
-    public abstract Cadeteria cargarCadeteria(string path);
-    public abstract List<Cadete> cargarCadetes(string path);
 }
 
 public class ArchivoCSV : AccesoADatos
 {
+
     public override Cadeteria cargarCadeteria(string path)
     {
         var archivo = new StreamReader(path);
@@ -27,9 +31,10 @@ public class ArchivoCSV : AccesoADatos
         archivo.Close();
         return cadeteria;
     }
+
     public override List<Cadete> cargarCadetes(string path)
     {
-        List<Cadete> listaCad = new List<Cadete>();
+        List<Cadete> lisCad = new List<Cadete>();
         var archivo = new StreamReader(path);
         string texto = archivo.ReadLine();
         string[] textoSeparado;
@@ -37,11 +42,11 @@ public class ArchivoCSV : AccesoADatos
         {
             textoSeparado = texto.Split(";");
             Cadete cadete = new Cadete(Convert.ToInt32(textoSeparado[0]), textoSeparado[1], textoSeparado[2], textoSeparado[3]);
-            listaCad.Add(cadete);
+            lisCad.Add(cadete);
             texto = archivo.ReadLine();
         }
         archivo.Close();
-        return listaCad;
+        return lisCad;
     }
 }
 
@@ -52,13 +57,11 @@ public class ArchivoJSON : AccesoADatos
         var archivo = new StreamReader(path);
         string texto = archivo.ReadToEnd();
         Cadeteria cadeteria = null;
-        if (texto != null)
-        {
-            cadeteria = JsonSerializer.Deserialize<Cadeteria>(texto);
-        }
+        cadeteria = JsonSerializer.Deserialize<Cadeteria>(texto);
         archivo.Close();
         return cadeteria;
     }
+
     public override List<Cadete> cargarCadetes(string path)
     {
         List<Cadete> lisCad = new List<Cadete>();
