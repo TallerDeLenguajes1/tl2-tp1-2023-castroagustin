@@ -23,10 +23,10 @@ public class Cadete
 
     public Cadete(int id, string nombre, string direccion, string telefono)
     {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
+        Id = id;
+        Nombre = nombre;
+        Direccion = direccion;
+        Telefono = telefono;
     }
 
 }

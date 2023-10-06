@@ -14,12 +14,12 @@ public class Pedido
     public Cliente? Cliente { get => cliente; set => cliente = value; }
     public int IdCadete { get => idCadete; set => idCadete = value; }
 
-    public Pedido(int idC, int nro, string obs, Cliente cli)
+    public Pedido(int idCadete, int nro, string obs, Cliente cliente)
     {
-        this.idCadete = idC;
+        this.idCadete = idCadete;
         this.nro = nro;
         this.obs = obs;
-        this.cliente = cli;
+        this.cliente = cliente;
         this.estado = Estados.Pendiente;
     }
 

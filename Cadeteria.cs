@@ -19,19 +19,44 @@ public class Cadeteria
         listadoPedidos = new List<Pedido>();
     }
 
-
-    public void AgregarListaCadetes(List<Cadete> listaCadetes)
-    {
-        this.listadoCadetes = listaCadetes;
-    }
-
-    public void crearPedido(int cadId, int nroP, string obs, string cliNom, string cliDir, string cliTel, string cliRef)
+    public void CrearPedido(int cadId, int nroP, string obs, string cliNom, string cliDir, string cliTel, string cliRef)
     {
         Cliente clientePedido = new Cliente(cliNom, cliDir, cliTel, cliRef);
         Pedido nuevoPedido = new Pedido(cadId, nroP, obs, clientePedido);
         ListadoPedidos.Add(nuevoPedido);
     }
 
+    public void CambiarEstadoPedido(int idP, int estadoNuevo)
+    {
+        Estados estadoN;
+        if (estadoNuevo == 1)
+        {
+            estadoN = Estados.Entregado;
+        }
+        else
+        {
+            estadoN = Estados.Cancelado;
+        }
+
+        foreach (Pedido p in listadoPedidos)
+        {
+            if (p.Nro == idP)
+            {
+                p.Estado = estadoN;
+            }
+        }
+    }
+
+    public void ReasignarPedido(int idP, int idCadN)
+    {
+        foreach (Pedido p in listadoPedidos)
+        {
+            if (p.Nro == idP)
+            {
+                p.IdCadete = idCadN;
+            }
+        }
+    }
 
     public int JornalACobrar(int id)
     {

@@ -1,20 +1,20 @@
 [
     {
-        "id": 1,
-        "nombre": "Agustin",
-        "direccion": "25 de Mayo 300",
-        "telefono": "381111111"
+        "Id": 1,
+        "Nombre": "Agustin",
+        "Direccion": "25 de Mayo 300",
+        "Telefono": "381111111"
     },
     {
-        "id": 2,
-        "nombre": "Juan",
-        "direccion": "25 de Mayo 300",
-        "telefono": "381111111"
+        "Id": 2,
+        "Nombre": "Juan",
+        "Direccion": "25 de Mayo 300",
+        "Telefono": "381111111"
     },
     {
-        "id": 3,
-        "nombre": "Pedro",
-        "direccion": "25 de Mayo 300",
-        "telefono": "381111111"
+        "Id": 3,
+        "Nombre": "Pedro",
+        "Direccion": "25 de Mayo 300",
+        "Telefono": "381111111"
     }
 ]
